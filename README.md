@@ -4,7 +4,7 @@ Build your own app to get your favourite Tumblr blog delivered to your [Little P
 
 ## Installation
 
-1. Clone this repository
+1. Clone this repository `git clone https://github.com/idleberg/Little-Tumbler.git`
 2. Run `npm install` in the cloned directory
 3. Create a [Tumblr OAuth Key](http://www.tumblr.com/oauth/apps), add it to the header of `app.js`
 4. Also fill in a name of a Tumblr blog
