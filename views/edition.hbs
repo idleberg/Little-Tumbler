@@ -1,0 +1,36 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=364">
+	<meta name="generator" content="Little Printer - https://github.com/idleberg/Little-Tumbler">
+
+	<!-- post title -->
+	<title>{{title.tumblr.title}}</title>
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<!-- post title -->
+	<h1><a href="{{title.tumblr.url}}">{{title.tumblr.title}}</a></h1>
+	
+	<!-- post description -->
+	<h2>{{title.tumblr.description}}</h2>
+	
+	<!-- post image -->
+	<a href="{{title.tumblr.image_permalink}}">
+		<img src="{{title.tumblr.image}}" alt="{{title.tumblr.image_caption}}" />
+	</a>
+	
+	<!-- post caption -->
+	<p>{{title.tumblr.caption}}</p>
+	
+	<!-- (of course there's no point in displaying a) list of post tags -->
+	<ul>
+	  {{#each title.tumblr.tags}}
+	  <li><a href="http://tumblr.com/tagged/{{this}}">{{this}}</a></li>
+	  {{/each}}
+	</ul>
+</body>
+</html>
