@@ -1,5 +1,5 @@
 // Little Tumbler
-var lbver = '0.1';
+var lbver = '0.1.1';
 
 // Tumblr
 var name = 'probs99';

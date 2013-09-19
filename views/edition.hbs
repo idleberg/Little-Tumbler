@@ -5,32 +5,33 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=364">
 	<meta name="generator" content="Little Printer - https://github.com/idleberg/Little-Tumbler">
-
+	{{#with title.tumblr}}
 	<!-- post title -->
-	<title>{{title.tumblr.title}}</title>
+	<title>{{title}}</title>
 
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 	<!-- post title -->
-	<h1><a href="{{title.tumblr.url}}">{{title.tumblr.title}}</a></h1>
+	<h1><a href="{{url}}">{{title}}</a></h1>
 	
 	<!-- post description -->
-	<h2>{{title.tumblr.description}}</h2>
+	<h2>{{description}}</h2>
 	
 	<!-- post image -->
-	<a href="{{title.tumblr.image_permalink}}">
-		<img class="dither" src="{{title.tumblr.image}}" alt="{{title.tumblr.image_caption}}" />
+	<a href="{{image_permalink}}">
+		<img class="dither" src="{{image}}" alt="{{image_caption}}" />
 	</a>
 	
 	<!-- post caption -->
-	<p>{{title.tumblr.caption}}</p>
+	<p>{{caption}}</p>
 	
 	<!-- (of course there's no point in displaying a) list of post tags -->
 	<ul>
-	  {{#each title.tumblr.tags}}
+	  {{#each tags}}
 	  <li><a href="http://tumblr.com/tagged/{{this}}">{{this}}</a></li>
 	  {{/each}}
 	</ul>
+	{{/with}}
 </body>
 </html>
