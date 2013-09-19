@@ -1,4 +1,4 @@
-# Little Tumblr
+# Little Tumbler
 
 Build your own app to get your favourite Tumblr blog delivered to your [Little Printer](http://bergcloud.com/littleprinter/). This is a work in progress, written from scratch and using [Express](https://npmjs.org/package/express), [Handlebars](https://npmjs.org/package/hbs) and the [Tumblr](https://npmjs.org/package/tumblr) package. Upcoming version might be built upon Roy Lines' [Little Printer](https://npmjs.org/package/littleprinter) package.
 
