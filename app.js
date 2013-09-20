@@ -1,5 +1,5 @@
 // Little Tumbler
-var lbver = '0.1.3',
+var lbver = '0.1.4',
 	lbport = '3000'
 
 // Tumblr
@@ -52,11 +52,17 @@ app.get('/edition', function(req, res) {
 		if (response.blog.name) handler.tumblr['name'] = response.blog.name;
 		if (response.blog.url) handler.tumblr['url'] = response.blog.url;
 		if (response.blog.description) handler.tumblr['description'] = response.blog.description;
+		if (response.blog.is_nsfw) handler.tumblr['is_nsfw'] = response.blog.is_nsfw;
+
+		if (response.posts[0].post_url) handler.tumblr['post_url'] = response.posts[0].post_url;
+		if (response.posts[0].type) handler.tumblr['type'] = response.posts[0].type;
+		if (response.posts[0].date) handler.tumblr['date'] = response.posts[0].date;
 		if (response.posts[0].caption) handler.tumblr['caption'] = response.posts[0].caption;
-		if (response.posts[0].photos[0].alt_sizes[2].url) handler.tumblr['image'] = response.posts[0].photos[0].alt_sizes[2].url;
 		if (response.posts[0].image_permalink) handler.tumblr['image_permalink'] = response.posts[0].image_permalink;
-		if (response.posts[0].photos[0].caption) handler.tumblr['image_caption'] = response.posts[0].photos[0].caption;
 		if (response.posts[0].tags) handler.tumblr['tags'] = response.posts[0].tags;
+
+		if (response.posts[0].photos[0].caption) handler.tumblr['image_caption'] = response.posts[0].photos[0].caption;
+		if (response.posts[0].photos[0].alt_sizes[2].url) handler.tumblr['image'] = response.posts[0].photos[0].alt_sizes[2].url;
 
 		res.setHeader('Content-Type', 'text/html');
 		res.render('edition', {title:handler});
