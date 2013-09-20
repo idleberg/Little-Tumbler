@@ -10,7 +10,7 @@ Build your own app to get your favourite Tumblr blog delivered to your [Little P
 4. Also fill in a name of a Tumblr blog (the example uses [99 Problems](http://probs99.tumblr.com))
 5. Launch the app using `node app`
 
-Take a look at the files in the `/views` folder to edit the look of your publicaiton and the displayed information.
+Take a look at the files in the `/views` folder to edit the look of your publication and the displayed information.
 
 Roy Lines has written these [excellent instructions](http://roylines.co.uk/2012/10/07/publishing-for-little-printer-using-node-and-heroku.html) for deploying your Node app to Heroku
 
