@@ -1,21 +1,22 @@
 // Little Tumbler
-var lbver = '0.1.2';
+var lbver = '0.1.3',
+	lbport = '3000'
 
 // Tumblr
-var name = 'probs99';
-var oauth = {
+var name = 'probs99',
+	oauth = {
 	// -> http://www.tumblr.com/oauth/apps
-	consumer_key: 'JRPYgzJwvXGllTejN0x5UNzlFANqw20hV2KeueRvYMnGYeL8lf'
+	consumer_key: ''
 };
 
 
 // Requirements
-var Blog = require('tumblr').Blog;
-var blog = new Blog(name+'.tumblr.com', oauth);
-
-var express = require('express');
-var app = express(); 
-var hbs = require('hbs');
+var Blog = require('tumblr').Blog,
+	blog = new Blog(name+'.tumblr.com', oauth),
+	express = require('express'),
+	app = express(),
+	hbs = require('hbs'),
+	handler = require('./meta.js');
 
 
 // Express set-up
@@ -25,21 +26,6 @@ app.set('view engine', 'hbs');
 
 // Render meta.json
 app.get('/meta.json', function(req, res) {
-
-	var handler = { };
-
-	handler.meta = {
-		// -> http://remote.bergcloud.com/developers/reference/metajson
-		"owner_email":"example@example.com",
-		"publication_api_version":"1.0",
-		"name": "Little Tumbler",
-		"description": "Send Tumblr content to your Little Printer",
-		"delivered_on":"every day",
-		"external_configuration": false,
-		"send_timezone_info": false,
-		"send_delivery_count": false
-	};
-
 	res.render('meta', {title:handler});
 });
 
@@ -61,19 +47,16 @@ app.get('/edition', function(req, res) {
 			throw new Error(error);
 		}
 
-		var handler = { };
-		
-		handler.tumblr = {
-			"title": response.blog.title,
-			"name": response.blog.name,
-			"url": response.blog.url,
-			"description": response.blog.description,
-			"caption": response.posts[0].caption,
-			"image": response.posts[0].photos[0].alt_sizes[2].url,
-			"image_permalink": response.posts[0].image_permalink,
-			"image_caption": response.posts[0].photos[0].caption,
-			"tags": response.posts[0].tags,
-		}
+		handler.tumblr = { };
+		if (response.blog.title) handler.tumblr['title'] = response.blog.title;
+		if (response.blog.name) handler.tumblr['name'] = response.blog.name;
+		if (response.blog.url) handler.tumblr['url'] = response.blog.url;
+		if (response.blog.description) handler.tumblr['description'] = response.blog.description;
+		if (response.posts[0].caption) handler.tumblr['caption'] = response.posts[0].caption;
+		if (response.posts[0].photos[0].alt_sizes[2].url) handler.tumblr['image'] = response.posts[0].photos[0].alt_sizes[2].url;
+		if (response.posts[0].image_permalink) handler.tumblr['image_permalink'] = response.posts[0].image_permalink;
+		if (response.posts[0].photos[0].caption) handler.tumblr['image_caption'] = response.posts[0].photos[0].caption;
+		if (response.posts[0].tags) handler.tumblr['tags'] = response.posts[0].tags;
 
 		res.setHeader('Content-Type', 'text/html');
 		res.render('edition', {title:handler});
@@ -89,13 +72,15 @@ app.get('/sample', function(req, res) {
 
 // Render default page
 app.get('/', function(req, res) {
-	res.send('<h1>Hello, my name is <a href="https://github.com/idleberg/Little-Tumbler">Little Tumbler</a>!</h1><p>View <a href="/edition">edition</a>, <a href="sample">sample</a> or <a href="/meta.json">meta.json</a></p>');
+	var html = '<h1>Hello, my name is <a href="https://github.com/idleberg/Little-Tumbler">Little Tumbler</a>!</h1><p>View <a href="/edition">edition</a>, <a href="sample">sample</a> or <a href="/meta.json">meta.json</a></p>';
+
+	res.send(html);
 });
 
 
 // Okay, let's go!
 console.log('\nLittle Tumbler ' +lbver+ ' - https://github.com/idleberg/Little-Tumbler');
 console.log('\nScraping http://' +name+ '.tumblr.com');
-console.log('Server running at http://localhost:3000');
+console.log('Server running at http://localhost:' +lbport);
 
-app.listen(3000);
+app.listen(lbport);
