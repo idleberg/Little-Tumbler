@@ -1,11 +1,11 @@
 // Little Tumbler
-var lbver = '0.1.1';
+var lbver = '0.1.2';
 
 // Tumblr
 var name = 'probs99';
 var oauth = {
 	// -> http://www.tumblr.com/oauth/apps
-	consumer_key: ''
+	consumer_key: 'JRPYgzJwvXGllTejN0x5UNzlFANqw20hV2KeueRvYMnGYeL8lf'
 };
 
 
@@ -89,12 +89,12 @@ app.get('/sample', function(req, res) {
 
 // Render default page
 app.get('/', function(req, res) {
-	res.send('Hello, my name is <a href="https://github.com/idleberg/Little-Tumbler">Little Tumbler</a>!');
+	res.send('<h1>Hello, my name is <a href="https://github.com/idleberg/Little-Tumbler">Little Tumbler</a>!</h1><p>View <a href="/edition">edition</a>, <a href="sample">sample</a> or <a href="/meta.json">meta.json</a></p>');
 });
 
 
 // Okay, let's go!
-console.log('\nLittle Tumbler' +lbver+ '- https://github.com/idleberg/Little-Tumbler');
+console.log('\nLittle Tumbler ' +lbver+ ' - https://github.com/idleberg/Little-Tumbler');
 console.log('\nScraping http://' +name+ '.tumblr.com');
 console.log('Server running at http://localhost:3000');
 

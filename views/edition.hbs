@@ -7,24 +7,24 @@
 	<meta name="generator" content="Little Printer - https://github.com/idleberg/Little-Tumbler">
 	{{#with title.tumblr}}
 	<!-- post title -->
-	<title>{{title}}</title>
+	<title>{{{title}}}</title>
 
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 	<!-- post title -->
-	<h1><a href="{{url}}">{{title}}</a></h1>
+	<h1><a href="{{{url}}}">{{{title}}}</a></h1>
 	
 	<!-- post description -->
-	<h2>{{description}}</h2>
+	<h2>{{{description}}}</h2>
 	
 	<!-- post image -->
 	<a href="{{image_permalink}}">
-		<img class="dither" src="{{image}}" alt="{{image_caption}}" />
+		<img class="dither" src="{{{image}}}" alt="{{{image_caption}}}" />
 	</a>
 	
 	<!-- post caption -->
-	<p>{{caption}}</p>
+	<p>{{{caption}}}</p>
 	
 	<!-- (of course there's no point in displaying a) list of post tags -->
 	<ul>
