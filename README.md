@@ -8,7 +8,8 @@ Build your own app to get your favourite Tumblr blog delivered to your [Little P
 2. Install dependencies `npm install`
 3. Create a [Tumblr OAuth Key](http://www.tumblr.com/oauth/apps), add it to the header of `app.js`
 4. Also fill in a name of a Tumblr blog (the example uses [99 Problems](http://probs99.tumblr.com))
-5. Launch the app using `node app`
+5. Edit the `meta.json` file to your likings
+6. Launch the app using `node app`
 
 Take a look at the files in the `/views` folder to edit the look of your publication and the displayed information.
 
